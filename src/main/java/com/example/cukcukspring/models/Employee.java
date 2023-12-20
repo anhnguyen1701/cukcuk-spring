@@ -10,9 +10,9 @@ import java.util.UUID;
 @Table(name = "Employees")
 @Getter
 @Setter
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Employee extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
