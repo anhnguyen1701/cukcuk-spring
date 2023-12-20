@@ -15,7 +15,7 @@ spring:
 logging:
   level:
     org:
-      springframework: info
+      springframework: debug
 
 api:
   prefix: api/v1
