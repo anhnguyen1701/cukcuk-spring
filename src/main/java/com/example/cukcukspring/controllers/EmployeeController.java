@@ -13,7 +13,8 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("${api.prefix}/Employees")
+
+@RequestMapping(value = {"${api.prefix}/Employees", "${api.prefix}/employees"})
 @RequiredArgsConstructor
 public class EmployeeController {
     private final IEmployeeService employeeService;
