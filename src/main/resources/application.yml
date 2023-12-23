@@ -16,6 +16,10 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:8081/realms/test
+#        opaquetoken:
+#          client-id: cukcuk-spring-boot
+#          client-secret: glic1MZw7dU0HBsASwlMmEAJLEB1glpz
+#          introspection-uri: http://localhost:8081/realms/test/protocol/openid-connect/token/introspect
 
 logging:
   level:
@@ -24,3 +28,5 @@ logging:
 
 api:
   prefix: api/v1
+server:
+  port : 3000

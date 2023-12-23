@@ -5,6 +5,7 @@ import com.example.cukcukspring.services.IEmployeeService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +31,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasRole('admin')")
     public ResponseEntity<?> getEmployee(@PathVariable UUID id) {
         try {
             var res = employeeService.getEmployeeById(id);
@@ -40,6 +42,7 @@ public class EmployeeController {
     }
 
     @PostMapping("")
+    @PreAuthorize("hasRole('admin')")
     public ResponseEntity<?> createEmployee(@Valid @RequestBody Employee employee, BindingResult result) {
         try {
             if (result.hasErrors()) {
@@ -59,6 +62,7 @@ public class EmployeeController {
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('admin')")
     public ResponseEntity<?> updateEmployee(@PathVariable UUID id, @Valid @RequestBody Employee employee, BindingResult result) {
         try {
             if (result.hasErrors()) {
@@ -76,6 +80,7 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('admin')")
     public ResponseEntity<?> deleteEmployee(@PathVariable UUID id) {
         try {
             employeeService.deleteEmployee(id);
